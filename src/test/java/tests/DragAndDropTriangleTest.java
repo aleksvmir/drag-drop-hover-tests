@@ -25,31 +25,19 @@ public class DragAndDropTriangleTest {
     }
 
     @Test
-    void dragAndDropUsingActions() {
-        // Открыть базовый URL и путь для Drag & Drop
+    void dragAndDropUsingActionsTest() {
         open("/drag_and_drop");
-
-        // Локаторы элементов, которые будем перетаскивать
         By draggableElement = By.id("column-a");
         By dropzone = By.id("column-b");
-
-        // Исполнение Drag & Drop с использованием Selenide.actions()
         actions().dragAndDrop($(draggableElement), $(dropzone)).perform();
-
-        // Проверка, что элементы поменялись местами
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
     }
 
     @Test
-    void dragAndDropUsingDragAndDropMethod() {
-        // Открыть базовый URL и путь для Drag & Drop
+    void dragAndDropUsingDragAndDropMethodTest() {
         open("/drag_and_drop");
-
-        // Выполнение Drag & Drop с использованием метода dragAndDropTo()
         $("#column-a").dragAndDrop(DragAndDropOptions.to("#column-b"));
-
-        // Проверка, что элементы поменялись местами
         $("#column-a").shouldHave(text("B"));
         $("#column-b").shouldHave(text("A"));
     }
