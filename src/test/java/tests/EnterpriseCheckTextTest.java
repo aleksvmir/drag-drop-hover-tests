@@ -26,12 +26,9 @@ public class EnterpriseCheckTextTest {
 
     @Test
     void EnterpriseCheckTest() {
-        // Открыть главную страницу GitHub
         open(Configuration.baseUrl);
-        // Открыть раздел Enterprise через наведение на Solutions
         $("nav").$(byTagAndText("button", "Solutions")).hover();
         $("[href='/enterprise']").click();
-        // Проверить наличие заголовка "The AI-powered developer platform"
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered developer platform"));
     }
 }
