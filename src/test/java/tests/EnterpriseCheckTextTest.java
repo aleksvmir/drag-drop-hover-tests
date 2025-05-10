@@ -15,8 +15,6 @@ public class EnterpriseCheckTextTest {
         Configuration.browserSize = "1920x1080";
         Configuration.baseUrl = "https://github.com/";
         Configuration.pageLoadStrategy = "eager";
-        Configuration.timeout = 5000;
-        // Configuration.holdBrowserOpen = true;
     }
 
     @AfterAll
@@ -25,8 +23,8 @@ public class EnterpriseCheckTextTest {
     }
 
     @Test
-    void EnterpriseCheckTest() {
-        open(Configuration.baseUrl);
+    void enterpriseCheckTest() {
+        open("/");
         $("nav").$(byTagAndText("button", "Solutions")).hover();
         $("[href='/enterprise']").click();
         $("#hero-section-brand-heading").shouldHave(text("The AI-powered developer platform"));
